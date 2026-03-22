@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>E&J Decor</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body {
+      background: linear-gradient(300deg,  rgb(247, 226, 162), #efefef);
+       line-height: 1.6;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    header {
+        background: linear-gradient(135deg,  #ffe4b6, #efefef);
+      border-bottom: 1px solid #000000;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 0;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px; 
+    }
+
+    .logo img {
+      width: 60px;
+      height: auto;
+      border-radius: 8px;
+    }
+
+    .logo h1 {
+      margin: 0;
+    }
+
+    nav a,
+    .btn {
+      text-decoration: none;
+      display: inline-block;
+      padding: 12px 20px;
+      border-radius: 10px;
+      transition: 0.3s;
+      font-weight: bold;
+    }
+
+    .btn-dark {
+      background: #111111;
+      color: #ffffff;
+    }
+
+    .btn-dark:hover {
+      background: #333333;
+    }
+
+    .btn-light {
+      border: 1px solid #cccccc;
+      color: #111111;
+      background: #ffffff;
+    }
+
+    .btn-light:hover {
+      background: #f0f0f0;
+    }
+
+    .hero {
+      padding: 70px 0;
+      background: linear-gradient(135deg, #ffffff, #efefef);
+    }
+
+    .hero-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .tag {
+      display: inline-block;
+      background: #e8e8e8;
+      color: #444444;
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 18px;
+    }
+
+    .hero h2 {
+      font-size: 44px;
+      line-height: 1.2;
+      margin-bottom: 18px;
+    }
+
+    .hero p {
+      font-size: 18px;
+      color: #555555;
+      margin-bottom: 28px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .hero-card {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 30px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    }
+
+    .hero-card h3 {
+      font-size: 24px;
+      margin-bottom: 12px;
+    }
+
+    .hero-card p {
+      font-size: 16px;
+      color: #666666;
+      margin-bottom: 15px;
+    }
+
+    section {
+      padding: 70px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 45px;
+    }
+
+    .section-title h2 {
+      font-size: 34px;
+      margin-bottom: 10px;
+    }
+
+    .section-title p {
+      color: #666666;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 18px;
+      padding: 25px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+    }
+    .card:hover {
+      background-color:rgb(255, 255, 255);
+      transform: scale(1.1);
+      color: rgb(0, 0, 0);
+
+    }
+
+    .card h3 {
+      margin-bottom: 10px;
+      font-size: 22px;
+    }
+
+    .card p {
+      color: #666666;
+    }
+
+    .benefits {
+      background: #111111;
+      color: #ffffff;
+      border-radius: 24px;
+      padding: 40px;
+    }
+
+    .benefits ul {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .benefits li {
+      background: rgba(255,255,255,0.08);
+      padding: 16px;
+      border-radius: 12px;
+    }
+
+    .cta {
+      text-align: center;
+      background: #ffffff;
+      border-radius: 24px;
+      padding: 50px 30px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+    }
+
+    .cta h2 {
+      font-size: 36px;
+      margin-bottom: 15px;
+    }
+
+    .cta p {
+      color: #666666;
+      margin-bottom: 25px;
+    }
+
+    footer {
+      background: #111111;
+      color: #ffffff;
+      padding: 35px 0;
+      margin-top: 40px;
+    }
+
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .footer-content p {
+      color: #cccccc;
+    }
+
+    @media (max-width: 900px) {
+      .hero-content,
+      .grid-3,
+      .benefits ul {
+        grid-template-columns: 1fr;
+      }
+
+      .hero h2 {
+        font-size: 34px;
+      }
+
+      .section-title h2,
+      .cta h2 {
+        font-size: 28px;
+      }
+    }
+    .img { 
+         display: block;
+         margin: auto;
+    }
+    .acd-link {
+       text-decoration: none;
+       color: #111;
+       transition: 0.3s;
+    }
+    .acd-link:hover {
+        color: #000000;
+    }
+    .btn-qwerty {
+      text-decoration: none;
+      color: #000000;
+      background: #ffffff;
+    }
+
+    .btn-qwerty:hover {
+      background: #f0f0f0;
+    }
+    html {
+  scroll-behavior: smooth;
+}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container header-content">
+      <div class="logo">
+        <img src="https://down-zl-br.img.susercontent.com/br-11134216-820lm-mm0v26qn71ts17_tn.webp" alt="Logo E&J Decor">
+        <h1>E&J Decor</h1>
+        <p>Site oficial da nossa loja na Shopee</p>
+      </div>
+      <nav>
+        <a href="#catalogo" class="btn btn-light">Catálogo</a>
+        <a href="https://shopee.com.br/jeisat26" target="_blank" class="btn btn-dark">Ir para Shopee</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container hero-content">
+      <div>
+        <span class="tag">Decoração com elegância</span>
+        <h2>Transforme sua casa com peças que encantam</h2>
+        <p>
+         Cada detalhe faz diferença. Nossos vasos decorativos são pensados para trazer charme, leveza e sofisticação ao seu ambiente.
+         Estilo e preço justo — tudo em um só lugar.
+        </p>
+        <div class="hero-buttons">
+          <a href="https://shopee.com.br/jeisat26" target="_blank" class="btn btn-dark">Comprar na Shopee</a>
+          <a href="#contato" class="btn btn-light">Falar com a loja</a>
+        </div>
+      </div>
+
+      <div class="hero-card">
+        <h3>Sua casa merece mais beleza e personalidade</h3>
+        <p>
+         Escolha seus vasos favoritos e receba no conforto da sua casa.
+         Produtos bem embalados, envio rápido e compra 100% segura pela Shopee.
+        </p>
+        <p><strong>Aqui você encontra:</strong> vasos decorativos, kits, peças elegantes e itens minimalistas.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="catalogo">
+    <div class="container">
+      <div class="section-title">
+        <h2>Categorias em destaque</h2>
+        <p> Alguns de nossos produtos que temos a oferecer </p>
+      </div>
+
+      <div class="grid-3">
+        <div class="card">
+          <a href="#produtos12" class="btn-qwerty"><h3>Vasos Decorativos</h3>
+          <p>Peças modernas e elegantes para sala, quarto, hall de entrada e ambientes internos.</p>
+          </a>
+        </div>
+        <div class="card">
+          <a href="#Kits12" class="btn-qwerty">
+          <h3>Kits Especiais</h3>
+          <p>Combinações pensadas para quem deseja decorar com praticidade ou presentear com bom gosto.</p>
+          </a>
+        </div>
+        <div class="card">
+          <h3>Decoração Minimalista</h3>
+          <p>Produtos com visual sofisticado para transformar o ambiente com leveza e modernidade.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container benefits">
+      <h2>Por que comprar com a E&J Decor?</h2>
+      <ul>
+        <li>Produtos bem embalados e envio rápido</li>
+        <li>Peças selecionadas com acabamento caprichado</li>
+        <li>Atendimento dedicado ao cliente</li>
+        <li>Compra finalizada com segurança pela Shopee</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="produtos12">
+    <div class="container">
+      <div class="section-title">
+        <h2>Produtos que encantam</h2>
+        <p>Algumas de nossas peças. Acesse nossa Shopee para mais.</p>
+      </div>
+      <div class="grid-3">
+        <div class="card">
+          <a class="acd-link" href="https://shopee.com.br/Dupla-Vasos-Decorativos-Enfeite-Decorativo-Decora%C3%A7%C3%A3o-i.242150226.58257312164?extraParams=%7B%22display_model_id%22%3A228802320038%2C%22model_selection_logic%22%3A3%7D"><h3>Dupla de Vasos</h3>
+          <p>Perfeita para aparadores, mesas, nichos e ambientes modernos.</p>
+          <img class="img" src="https://down-br.img.susercontent.com/file/br-11134207-820lo-mm24najfgwlc2e@resize_w900_nl.webp" width="300" height="300">
+          </a>
+        </div>
+        <div class="card">
+          <a class="acd-link" href="https://shopee.com.br/Conjunto-de-Vasos-Decorativos-Decora%C3%A7%C3%A3o-de-interior-i.242150226.23894135835?extraParams=%7B%22display_model_id%22%3A228802320052%2C%22model_selection_logic%22%3A3%7D"><h3>Trio Decorativo</h3>
+          <p>Uma composição charmosa para valorizar a decoração da casa.</p>
+          <img class="img" src="https://down-br.img.susercontent.com/file/br-11134207-820lc-mm24najbsv7rf8@resize_w900_nl.webp" width="350" height="300">
+          </a>
+        </div>
+        <div class="card">
+          <a class="acd-link" href="https://shopee.com.br/Dupla-de-Encaixe-Vaso-Decorativo-Enfeite-Decorativo-i.242150226.23799391106?extraParams=%7B%22display_model_id%22%3A149791118254%2C%22model_selection_logic%22%3A3%7D"><h3>Peças para Presente</h3>
+          <p>Itens sofisticados para surpreender em datas especiais.</p>
+          <img src="https://down-br.img.susercontent.com/file/br-11134207-820l6-mm23m187w7b406@resize_w900_nl.webp" width="350" height="300">
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+ <section id="Kits12">
+    <div class="container">
+      <div class="section-title">
+        <h2>Nossos kits</h2>
+        <p>KIts que vão impressionar. Acesse nossa Shopee para comprar.</p>
+      </div>
+      <div class="grid-3">
+        <div class="card">
+          <a class="acd-link" href="https://shopee.com.br/Dupla-Vasos-Decorativos-Enfeite-Decorativo-Decora%C3%A7%C3%A3o-i.242150226.58257312164?extraParams=%7B%22display_model_id%22%3A228802320038%2C%22model_selection_logic%22%3A3%7D"><h3>Kit1</h3>
+          <p>?.</p>
+          <img class="img" src="https://thumbs.dreamstime.com/b/povos-3d-brancos-com-um-ponto-de-interroga%C3%A7%C3%A3o-27709668.jpg" width="300" height="300">
+          </a>
+        </div>
+        <div class="card">
+          <a class="acd-link" href="https://shopee.com.br/Conjunto-de-Vasos-Decorativos-Decora%C3%A7%C3%A3o-de-interior-i.242150226.23894135835?extraParams=%7B%22display_model_id%22%3A228802320052%2C%22model_selection_logic%22%3A3%7D"><h3>Kit2</h3>
+          <p>?.</p>
+          <img class="img" src="https://thumbs.dreamstime.com/b/povos-3d-brancos-com-um-ponto-de-interroga%C3%A7%C3%A3o-27709668.jpg" width="350" height="300">
+          </a>
+        </div>
+        <div class="card">
+          <a class="acd-link" href="https://shopee.com.br/Dupla-de-Encaixe-Vaso-Decorativo-Enfeite-Decorativo-i.242150226.23799391106?extraParams=%7B%22display_model_id%22%3A149791118254%2C%22model_selection_logic%22%3A3%7D"><h3>Kit3</h3>
+          <p>?.</p>
+          <img src="https://thumbs.dreamstime.com/b/povos-3d-brancos-com-um-ponto-de-interroga%C3%A7%C3%A3o-27709668.jpg" width="350" height="300">
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contato">
+    <div class="container cta">
+      <h2>Clique no botão abaixo para ir para nosso loja virtual</h2>
+      <p>
+        Acesse nossa loja para encontrar uma variedade de produtos que vão transformar seu interior.
+      </p>
+      <a href="https://shopee.com.br/jeisat26" target="_blank" class="btn btn-dark">Acessar loja na Shopee</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container footer-content">
+      <div>
+        <h3>E&J Decor</h3>
+        <p>Decoração com elegância e praticidade.</p>
+      </div>
+      <p>© 2026 - Todos os direitos reservados</p>
+    </div>
+  </footer>
+</body>
+</html>
